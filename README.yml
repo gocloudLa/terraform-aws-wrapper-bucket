@@ -27,7 +27,6 @@ features: []
 important_notes: |
   - **🚨 Force Bucket Deletion:** Forces the deletion of all objects in the bucket before deleting the bucket itself - set `force_destroy = true`
   - **⚠️ Attach Public Bucket Policy:** Controla si el bucket S3 debe tener la política de bucket adjunta - set `attach_public_policy = true`
-Attach Bucket Poli
 input_table: |
   | create_bucket | Controls whether to create the S3 bucket. | `bool` | `false` | no |
   | block_public_acls | Whether Amazon S3 should block public ACLs for this bucket. | `bool` | `false` | no |
