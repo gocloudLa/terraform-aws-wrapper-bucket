@@ -1,0 +1,90 @@
+module_name: Terraform S3 Bucket Module
+module_description: The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 Service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of RDS instances by handling all the technical details. [External Module Documentation S3 Bucket](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/3.7.0)
+module_badges:
+  - url: "https://github.com/gocloudLa/terraform-aws-wrapper-bucket/releases/latest"
+    image: "https://img.shields.io/github/v/release/gocloudLa/terraform-aws-wrapper-bucket.svg?style=for-the-badge"
+    alt: "Latest Release"
+  - url: ""
+    image: "https://img.shields.io/github/last-commit/gocloudLa/terraform-aws-wrapper-bucket.svg?style=for-the-badge"
+    alt: "Last Commit"
+  - url: "https://registry.terraform.io/modules/gocloudLa/wrapper-bucket/aws"
+    image: "https://img.shields.io/badge/Terraform-Registry-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"
+    alt: "Terraform Registry"
+quick_start: |
+  ```hcl
+  bucket_parameters = {
+          "example" = {
+              create_bucket           = true
+              block_public_acls       = true
+              block_public_policy     = true
+              ignore_public_acls      = true
+              restrict_public_buckets = true
+              object_ownership        = "BucketOwnerEnforced"
+          }
+      }
+  ```
+features: []
+important_notes: |
+  - **🚨 Force Bucket Deletion:** Forces the deletion of all objects in the bucket before deleting the bucket itself - set `force_destroy = true`
+  - **⚠️ Attach Public Bucket Policy:** Controla si el bucket S3 debe tener la política de bucket adjunta - set `attach_public_policy = true`
+Attach Bucket Poli
+input_table: |
+  | create_bucket | Controls whether to create the S3 bucket. | `bool` | `false` | no |
+  | block_public_acls | Whether Amazon S3 should block public ACLs for this bucket. | `bool` | `false` | no |
+  | block_public_policy | Whether Amazon S3 should block public bucket policies for this bucket. | `bool` | `false` | no |
+  | ignore_public_acls | Whether Amazon S3 should ignore public ACLs for this bucket. | `bool` | `false` | no |
+  | restrict_public_buckets | Whether Amazon S3 should restrict public bucket policies for this bucket. | `bool` | `false` | no |
+  | object_ownership | Object ownership. | `string` | `"ObjectWriter"` | no |
+  | acceleration_status | (Optional) Sets the acceleration configuration of an existing bucket. | `string` | `null` | no |
+  | access_log_delivery_policy_source_accounts | (Optional) List of AWS account IDs to allow to deliver access logs for this bucket. | `list` | `[]` | no |
+  | access_log_delivery_policy_source_buckets | (Optional) List of S3 bucket ARNs to allow to deliver access logs for this bucket. | `list` | `[]` | no |
+  | acl | (Optional) The pre-defined ACL that should be applied. Conflicts with `grant`. | `string` | `null` | no |
+  | analytics_configuration | Map containing the S3 analytics configuration of the bucket. | `any` | `{}` | no |
+  | analytics_self_source_destination | If the bucket analytics source is also the destination bucket. | `bool` | `false` | no |
+  | analytics_source_account_id | The analytics source account ID. | `string` | `null` | no |
+  | analytics_source_bucket_arn | The analytics source bucket ARN. | `string` | `null` | no |
+  | attach_access_log_delivery_policy | Controls whether the S3 bucket should have the attached access log delivery policy. | `bool` | `false` | no |
+  | attach_analytics_destination_policy | Controls whether the S3 bucket should have the attached analytics destination policy. | `bool` | `false` | no |
+  | attach_cloudtrail_log_delivery_policy | Controls if S3 bucket should have CloudTrail log delivery policy attached. | `bool` | `false` | no |
+  | attach_elb_log_delivery_policy | Controls whether the S3 bucket should have the attached ELB log delivery policy. | `bool` | `false` | no |
+  | attach_inventory_destination_policy | Controls whether the S3 bucket should have the attached inventory destination policy. | `bool` | `false` | no |
+  | attach_lb_log_delivery_policy | Controls whether the S3 bucket should have the attached ALB/NLB log delivery policy. | `bool` | `false` | no |
+  | attach_policy | Controls whether the S3 bucket should have the attached bucket policy. | `bool` | `false` | no |
+  | attach_public_policy | Controls whether to attach a user-defined public bucket policy. | `bool` | `true` | no |
+  | attach_require_latest_tls_policy | Controls whether the S3 bucket should require the latest TLS version. | `bool` | `false` | no |
+  | attach_waf_log_delivery_policy | Controls if S3 bucket should have WAF log delivery policy attached. | `bool` | `false` | no |
+  | bucket_prefix | (Optional) Creates a unique bucket name starting with the specified prefix. Conflicts with bucket. | `string` | `null` | no |
+  | control_object_ownership | Whether to manage object ownership control on this bucket. | `bool` | `false` | no |
+  | cors_rule | List of maps containing Cross-Origin Resource Sharing (CORS) rules. | `any` | `[]` | no |
+  | expected_bucket_owner | The expected bucket owner's account ID. | `string` | `null` | no |
+  | force_destroy | (Optional) Indicates that all objects should be destroyed from the bucket so that the bucket can be destroyed without error. | `bool` | `false` | no |
+  | grant | A grant of an ACL policy. Conflicts with `acl`. | `any` | `[]` | no |
+  | intelligent_tiering | Map containing the intelligent storage configuration. | `any` | `{}` | no |
+  | inventory_configuration | Map containing the S3 inventory configuration. | `any` | `{}` | no |
+  | inventory_self_source_destination | If the bucket inventory source is also the destination bucket. | `bool` | `false` | no |
+  | inventory_source_account_id | The inventory source account ID. | `string` | `null` | no |
+  | inventory_source_bucket_arn | The inventory source bucket ARN. | `string` | `null` | no |
+  | lifecycle_rule | List of maps containing the object lifecycle management configuration. | `any` | `[]` | no |
+  | logging | Map containing the bucket access log configuration. | `map` | `{}` | no |
+  | metric_configuration | Map containing the bucket metric configuration. | `any` | `[]` | no |
+  | object_lock_configuration | Map containing the S3 object lock configuration. | `any` | `{}` | no |
+  | object_lock_enabled | Whether the S3 bucket should have object lock configuration enabled. | `bool` | `false` | no |
+  | owner | Display name and ID of the bucket owner. Conflicts with `acl`. | `map` | `{}` | no |
+  | policy | (Optional) A valid JSON bucket policy document. | `string` | `null` | no |
+  | replication_configuration | Map containing the cross-region replication configuration. | `any` | `{}` | no |
+  | request_payer | (Optional) Specifies who should assume the cost of the data transfer from Amazon S3. | `string` | `null` | no |
+  | server_side_encryption_configuration | Map containing the server-side encryption configuration. | `any` | `{}` | no |
+  | versioning | Map containing the versioning configuration. | `map` | `{}` | no |
+  | website | Map containing the configuration for static website hosting or redirection. | `any` | `{}` | no |
+  | transition_default_minimum_object_size | (Optional) The default minimum object size behavior applied to the lifecycle configuration. Valid values: all_storage_classes_128K (default), varies_by_storage_class. | `string` | `all_storage_classes_128K` | no |
+  | attach_deny_ssec_encrypted_object_uploads | (Optional) Controls if S3 bucket should deny SSEC encrypted object uploads. | `bool` | `false` | no |
+  | access_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs should be allowed to deliver access logs to this bucket. | `any` | `[]` | no |
+  | lb_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs that should be allowed to deliver ALB/NLB logs to this bucket. | `any` | `[]` | no |
+  | region | Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. | `string` | `null` | no |
+  | Variable | Variable Description | `null` | `Default` | no |
+  | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | `null` | `------------------` | no |
+  | is_directory_bucket | (Optional) If the s3 bucket created is a directory bucket. | `bool` | `false` | no |
+  | data_redundancy | (Optional) Data redundancy. Valid values: SingleAvailabilityZone. | `string` | `SingleAvailabilityZone` | no |
+  | type | (Optional) Bucket type. Valid values: Directory. | `string` | `Directory` | no |
+  | availability_zone_id | (Optional) Availability Zone ID or Local Zone ID. | `string` | `null` | no |
+  | location_type | (Optional) Location type. Valid values: AvailabilityZone or LocalZone. | `string` | `null` | no |
