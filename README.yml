@@ -1,5 +1,5 @@
 module_name: Terraform S3 Bucket Module
-module_description: The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 Service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of RDS instances by handling all the technical details. [External Module Documentation S3 Bucket](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/3.7.0)
+module_description: The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 Service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of RDS instances by handling all the technical details.
 module_badges:
   - url: "https://github.com/gocloudLa/terraform-aws-wrapper-bucket/releases/latest"
     image: "https://img.shields.io/github/v/release/gocloudLa/terraform-aws-wrapper-bucket.svg?style=for-the-badge"
@@ -26,7 +26,7 @@ quick_start: |
 features: []
 important_notes: |
   - **🚨 Force Bucket Deletion:** Forces the deletion of all objects in the bucket before deleting the bucket itself - set `force_destroy = true`
-  - **⚠️ Attach Public Bucket Policy:** Controla si el bucket S3 debe tener la política de bucket adjunta - set `attach_public_policy = true`
+  - **⚠️ Attach Public Bucket Policy:** Controls whether the S3 bucket should have the attached public bucket policy - set `attach_public_policy = true`
 input_table: |
   | create_bucket | Controls whether to create the S3 bucket. | `bool` | `false` | no |
   | block_public_acls | Whether Amazon S3 should block public ACLs for this bucket. | `bool` | `false` | no |
@@ -80,8 +80,6 @@ input_table: |
   | access_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs should be allowed to deliver access logs to this bucket. | `any` | `[]` | no |
   | lb_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs that should be allowed to deliver ALB/NLB logs to this bucket. | `any` | `[]` | no |
   | region | Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. | `string` | `null` | no |
-  | Variable | Variable Description | `null` | `Default` | no |
-  | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | `null` | `------------------` | no |
   | is_directory_bucket | (Optional) If the s3 bucket created is a directory bucket. | `bool` | `false` | no |
   | data_redundancy | (Optional) Data redundancy. Valid values: SingleAvailabilityZone. | `string` | `SingleAvailabilityZone` | no |
   | type | (Optional) Bucket type. Valid values: Directory. | `string` | `Directory` | no |
