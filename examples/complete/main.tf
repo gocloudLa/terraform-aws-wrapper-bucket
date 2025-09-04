@@ -3,7 +3,6 @@ module "bucket" {
   source = "../../"
 
   metadata = local.metadata
-  project  = local.project
 
   bucket_parameters = {
     "example" = {
