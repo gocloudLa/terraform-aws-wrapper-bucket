@@ -1,5 +1,5 @@
 module_name: Terraform S3 Bucket Module
-module_description: The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 Service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of RDS instances by handling all the technical details.
+module_description: The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 Service in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of S3 buckets by handling all the technical details.
 module_badges:
   - url: "https://github.com/gocloudLa/terraform-aws-wrapper-bucket/releases/latest"
     image: "https://img.shields.io/github/v/release/gocloudLa/terraform-aws-wrapper-bucket.svg?style=for-the-badge"
