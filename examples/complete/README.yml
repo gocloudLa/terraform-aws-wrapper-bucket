@@ -1,0 +1,8 @@
+title: "Complete Example"
+description: "This example demonstrates a fully configured S3 bucket using Terraform with various security and policy settings."
+main_purpose: "The main purpose is to create a secure and policy-compliant S3 bucket."
+key_features:
+  - "**Bucket Creation**: Enables the creation of an S3 bucket with specified parameters."
+  - "**Security Policies**: Implements security policies such as blocking public ACLs, public policy, and denying insecure transport."
+  - "**Object Ownership**: Enforces bucket owner enforced object ownership."
+  - "**Bucket Restrictions**: Restricts public buckets and enforces various security configurations."
