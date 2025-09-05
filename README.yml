@@ -36,6 +36,7 @@ input_table: |
   | object_ownership | Object ownership. | `string` | `"ObjectWriter"` | no |
   | acceleration_status | (Optional) Sets the acceleration configuration of an existing bucket. | `string` | `null` | no |
   | access_log_delivery_policy_source_accounts | (Optional) List of AWS account IDs to allow to deliver access logs for this bucket. | `list` | `[]` | no |
+  | allowed_kms_key_arn | (Optional) The ARN of the KMS key that should be allowed for encryption. | `string` | `null` | no |
   | access_log_delivery_policy_source_buckets | (Optional) List of S3 bucket ARNs to allow to deliver access logs for this bucket. | `list` | `[]` | no |
   | acl | (Optional) The pre-defined ACL that should be applied. Conflicts with `grant`. | `string` | `null` | no |
   | analytics_configuration | Map containing the S3 analytics configuration of the bucket. | `any` | `{}` | no |
@@ -76,12 +77,16 @@ input_table: |
   | versioning | Map containing the versioning configuration. | `map` | `{}` | no |
   | website | Map containing the configuration for static website hosting or redirection. | `any` | `{}` | no |
   | transition_default_minimum_object_size | (Optional) The default minimum object size behavior applied to the lifecycle configuration. Valid values: all_storage_classes_128K (default), varies_by_storage_class. | `string` | `all_storage_classes_128K` | no |
+  | attach_deny_incorrect_encryption_headers | (Optional) Controls if S3 bucket should deny incorrect encryption headers. | `bool` | `false` | no |
+  | attach_deny_incorrect_kms_key_sse | (Optional) Controls if S3 bucket should deny incorrect KMS key SSE. | `bool` | `false` | no |
+  | attach_deny_insecure_transport_policy | (Optional) Controls if S3 bucket should deny insecure transport policy. | `bool` | `false` | no |
   | attach_deny_ssec_encrypted_object_uploads | (Optional) Controls if S3 bucket should deny SSEC encrypted object uploads. | `bool` | `false` | no |
+  | attach_deny_unencrypted_object_uploads | (Optional) Controls if S3 bucket should deny unencrypted object uploads. | `bool` | `false` | no |
   | access_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs should be allowed to deliver access logs to this bucket. | `any` | `[]` | no |
   | lb_log_delivery_policy_source_organizations | (Optional) List of AWS Organization IDs that should be allowed to deliver ALB/NLB logs to this bucket. | `any` | `[]` | no |
   | region | Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. | `string` | `null` | no |
   | is_directory_bucket | (Optional) If the s3 bucket created is a directory bucket. | `bool` | `false` | no |
-  | data_redundancy | (Optional) Data redundancy. Valid values: SingleAvailabilityZone. | `string` | `SingleAvailabilityZone` | no |
+  | data_redundancy | (Optional) Data redundancy. Valid values: SingleAvailabilityZone. | `string` | `null` | no |
   | type | (Optional) Bucket type. Valid values: Directory. | `string` | `Directory` | no |
   | availability_zone_id | (Optional) Availability Zone ID or Local Zone ID. | `string` | `null` | no |
   | location_type | (Optional) Location type. Valid values: AvailabilityZone or LocalZone. | `string` | `null` | no |
