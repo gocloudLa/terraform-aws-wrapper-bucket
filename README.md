@@ -98,6 +98,7 @@ bucket_parameters = {
 | type                                            | (Optional) Bucket type. Valid values: Directory.                                                                                                                       | `string` | `Directory`                | no       |
 | availability_zone_id                            | (Optional) Availability Zone ID or Local Zone ID.                                                                                                                      | `string` | `null`                     | no       |
 | location_type                                   | (Optional) Location type. Valid values: AvailabilityZone or LocalZone.                                                                                                 | `string` | `null`                     | no       |
+| tags                                            | A map of tags to assign to resources.                                                                                                                                  | `map`    | `{}`                       | no       |
 
 
 

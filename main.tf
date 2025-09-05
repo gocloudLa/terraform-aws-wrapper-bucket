@@ -70,5 +70,5 @@ module "bucket" {
   availability_zone_id = try(each.value.availability_zone_id, var.bucket_defaults.availability_zone_id, null)
   location_type        = try(each.value.location_type, var.bucket_defaults.location_type, null)
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.bucket_defaults.tags, null))
 }
