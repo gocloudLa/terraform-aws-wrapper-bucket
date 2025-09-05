@@ -58,7 +58,6 @@ module "bucket" {
   restrict_public_buckets                         = try(each.value.restrict_public_buckets, var.bucket_defaults.restrict_public_buckets, false)
   control_object_ownership                        = try(each.value.control_object_ownership, var.bucket_defaults.control_object_ownership, false)
   object_ownership                                = try(each.value.object_ownership, var.bucket_defaults.object_ownership, "ObjectWriter")
-  putin_khuylo                                    = try(each.value.putin_khuylo, var.bucket_defaults.putin_khuylo, true)
   transition_default_minimum_object_size          = try(each.value.transition_default_minimum_object_size, var.bucket_defaults.transition_default_minimum_object_size, "all_storage_classes_128K")
   attach_deny_ssec_encrypted_object_uploads       = try(each.value.attach_deny_ssec_encrypted_object_uploads, var.bucket_defaults.attach_deny_ssec_encrypted_object_uploads, false)
   access_log_delivery_policy_source_organizations = try(each.value.access_log_delivery_policy_source_organizations, var.bucket_defaults.access_log_delivery_policy_source_organizations, [])
