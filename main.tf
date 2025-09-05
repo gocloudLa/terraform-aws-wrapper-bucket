@@ -26,7 +26,6 @@ module "bucket" {
   bucket_prefix                                   = try(each.value.bucket_prefix, var.bucket_defaults.bucket_prefix, null)
   acl                                             = try(each.value.acl, var.bucket_defaults.acl, null)
   policy                                          = try(each.value.policy, var.bucket_defaults.policy, null)
-  tags                                            = local.common_tags
   force_destroy                                   = try(each.value.force_destroy, var.bucket_defaults.force_destroy, false)
   acceleration_status                             = try(each.value.acceleration_status, var.bucket_defaults.acceleration_status, null)
   request_payer                                   = try(each.value.request_payer, var.bucket_defaults.request_payer, null)
@@ -71,4 +70,5 @@ module "bucket" {
   availability_zone_id = try(each.value.availability_zone_id, var.bucket_defaults.availability_zone_id, null)
   location_type        = try(each.value.location_type, var.bucket_defaults.location_type, null)
 
+  tags = merge(local.common_tags, try(each.value.tags, var.bucket_defaults.tags, null))
 }
