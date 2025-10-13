@@ -1,7 +1,7 @@
 module "bucket" {
 
   source   = "terraform-aws-modules/s3-bucket/aws"
-  version  = "5.2.0"
+  version  = "5.7.0"
   for_each = var.bucket_parameters
 
   create_bucket                                   = try(each.value.create_bucket, var.bucket_defaults.create_bucket, false)
