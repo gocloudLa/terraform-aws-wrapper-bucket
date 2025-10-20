@@ -1,7 +1,7 @@
 module "bucket" {
 
   source   = "terraform-aws-modules/s3-bucket/aws"
-  version  = "5.7.0"
+  version  = "5.8.1"
   for_each = var.bucket_parameters
 
   create_bucket                                   = try(each.value.create_bucket, var.bucket_defaults.create_bucket, false)
@@ -62,6 +62,12 @@ module "bucket" {
   access_log_delivery_policy_source_organizations = try(each.value.access_log_delivery_policy_source_organizations, var.bucket_defaults.access_log_delivery_policy_source_organizations, [])
   lb_log_delivery_policy_source_organizations     = try(each.value.lb_log_delivery_policy_source_organizations, var.bucket_defaults.lb_log_delivery_policy_source_organizations, [])
   region                                          = try(each.value.region, var.bucket_defaults.region, null)
+  create_metadata_configuration                   = try(each.value.create_metadata_configuration, var.bucket_defaults.create_metadata_configuration, false)
+  metadata_encryption_configuration               = try(each.value.metadata_encryption_configuration, var.bucket_defaults.metadata_encryption_configuration, null)
+  metadata_inventory_table_configuration_state    = try(each.value.metadata_inventory_table_configuration_state, var.bucket_defaults.metadata_inventory_table_configuration_state, null)
+  metadata_journal_table_record_expiration        = try(each.value.metadata_journal_table_record_expiration, var.bucket_defaults.metadata_journal_table_record_expiration, null)
+  metadata_journal_table_record_expiration_days   = try(each.value.metadata_journal_table_record_expiration_days, var.bucket_defaults.metadata_journal_table_record_expiration_days, null)
+  skip_destroy_public_access_block                = try(each.value.skip_destroy_public_access_block, var.bucket_defaults.skip_destroy_public_access_block, true)
 
   ## S3 directory
   is_directory_bucket  = try(each.value.is_directory_bucket, var.bucket_defaults.is_directory_bucket, false)
