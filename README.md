@@ -15,7 +15,7 @@ The Terraform Wrapper for Bucket simplifies the configuration of the Amazon S3 S
 ### 🔗 External Modules
 | Name | Version |
 |------|------:|
-| <a href="https://github.com/terraform-aws-modules/terraform-aws-s3-bucket" target="_blank">terraform-aws-modules/s3-bucket/aws</a> | 5.2.0 |
+| <a href="https://github.com/terraform-aws-modules/terraform-aws-s3-bucket" target="_blank">terraform-aws-modules/s3-bucket/aws</a> | 5.8.1 |
 
 
 
@@ -104,6 +104,12 @@ bucket_parameters = {
 | availability_zone_id                            | (Optional) Availability Zone ID or Local Zone ID.                                                                                                                      | `string` | `null`                     | no       |
 | location_type                                   | (Optional) Location type. Valid values: AvailabilityZone or LocalZone.                                                                                                 | `string` | `null`                     | no       |
 | tags                                            | A map of tags to assign to resources.                                                                                                                                  | `map`    | `{}`                       | no       |
+| skip_destroy_public_access_block                | Whether to skip destroying the S3 Bucket Public Access Block configuration when destroying the bucket. Only used if `public_access_block` is set to true.              | `bool`   | `true`                     | no       |
+| create_metadata_configuration                   | Whether to create metadata configuration resource                                                                                                                      | `bool`   | `false`                    | no       |
+| metadata_inventory_table_configuration_state    | Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: ENABLED, DISABLED                             | `string` | `null`                     | no       |
+| metadata_encryption_configuration               | Encryption configuration block                                                                                                                                         | `any`    | `null`                     | no       |
+| metadata_journal_table_record_expiration_days   | Number of days to retain journal table records                                                                                                                         | `number` | `null`                     | no       |
+| metadata_journal_table_record_expiration        | Whether journal table record expiration is enabled or disabled. Valid values: ENABLED, DISABLED                                                                        | `string` | `null`                     | no       |
 
 
 

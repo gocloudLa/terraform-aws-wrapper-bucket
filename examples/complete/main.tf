@@ -57,6 +57,7 @@ module "bucket" {
       block_public_policy     = true
       ignore_public_acls      = true
       restrict_public_buckets = true
+      skip_destroy            = true
 
       # S3 Directory
       # is_directory_bucket = true
@@ -72,6 +73,7 @@ module "bucket" {
       object_ownership = "BucketOwnerEnforced"
     }
   }
+
 
   bucket_defaults = var.bucket_defaults
 }
