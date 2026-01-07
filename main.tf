@@ -22,7 +22,7 @@ module "bucket" {
   attach_public_policy                            = try(each.value.attach_public_policy, var.bucket_defaults.attach_public_policy, true)
   attach_require_latest_tls_policy                = try(each.value.attach_require_latest_tls_policy, var.bucket_defaults.attach_require_latest_tls_policy, false)
   attach_waf_log_delivery_policy                  = try(each.value.attach_waf_log_delivery_policy, var.bucket_defaults.attach_waf_log_delivery_policy, false)
-  bucket                                          = try(each.value.bucket_name, "${local.common_name}-${each.key}")
+  bucket                                          = try(each.value.bucket, "${local.common_name}-${each.key}")
   bucket_prefix                                   = try(each.value.bucket_prefix, var.bucket_defaults.bucket_prefix, null)
   acl                                             = try(each.value.acl, var.bucket_defaults.acl, null)
   policy                                          = try(each.value.policy, var.bucket_defaults.policy, null)
