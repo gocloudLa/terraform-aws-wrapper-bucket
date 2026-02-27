@@ -53,6 +53,7 @@ input_table: |
   | attach_public_policy | Controls whether to attach a user-defined public bucket policy. | `bool` | `true` | no |
   | attach_require_latest_tls_policy | Controls whether the S3 bucket should require the latest TLS version. | `bool` | `false` | no |
   | attach_waf_log_delivery_policy | Controls if S3 bucket should have WAF log delivery policy attached. | `bool` | `false` | no |
+  | bucket | Name for the S3 Bucket. | `string` | `${local.common_name}-${each.key}` | no |
   | bucket_prefix | (Optional) Creates a unique bucket name starting with the specified prefix. Conflicts with bucket. | `string` | `null` | no |
   | control_object_ownership | Whether to manage object ownership control on this bucket. | `bool` | `false` | no |
   | cors_rule | List of maps containing Cross-Origin Resource Sharing (CORS) rules. | `any` | `[]` | no |
