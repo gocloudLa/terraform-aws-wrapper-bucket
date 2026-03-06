@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/gocloudLa/terraform-aws-wrapper-bucket/compare/v1.1.0...v1.1.1) (2026-03-06)
+
+
+### Bug Fixes
+
+* **deps:** bump terraform-aws-modules/s3-bucket/aws from 5.8.2 to 5.10.0 in the all-terraform-dependencies group across 1 directory ([#10](https://github.com/gocloudLa/terraform-aws-wrapper-bucket/issues/10)) ([c6ff86b](https://github.com/gocloudLa/terraform-aws-wrapper-bucket/commit/c6ff86b844250e773ef668a98c1f4f50db7d3e0f))
+
 ## [1.1.0](https://github.com/gocloudLa/terraform-aws-wrapper-bucket/compare/v1.0.1...v1.1.0) (2026-01-07)
 
 
